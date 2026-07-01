@@ -15,11 +15,23 @@ export default function Header({ onOpenChat, lang, setLang }) {
 
   const t = translations[lang];
 
+  const scrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
+    document.body.scrollTo({ top: 0, behavior: 'smooth' });
+    const homeSection = document.getElementById('home');
+    if (homeSection) {
+      homeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    window.history.pushState("", document.title, window.location.pathname + window.location.search);
+  };
+
   return (
     <header className={`fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-6xl z-50 transition-all duration-300 ${isScrolled ? 'top-2' : 'top-4'}`}>
       <div className="glass rounded-2xl px-6 py-4 flex items-center justify-between border border-white/10 shadow-lg shadow-black/50">
         {/* Logo and Brand */}
-        <a href="#home" className="flex items-center gap-3 group">
+        <a href="#home" onClick={scrollToTop} className="flex items-center gap-3 group">
           <img 
             src="/Assets/Images/Time travel agency logo.png" 
             alt="TimeTravel Agency Logo" 
@@ -37,7 +49,7 @@ export default function Header({ onOpenChat, lang, setLang }) {
 
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#home" className="text-sm font-medium text-gray-300 hover:text-luxury-gold transition-colors duration-200 flex items-center gap-1.5">
+          <a href="#home" onClick={scrollToTop} className="text-sm font-medium text-gray-300 hover:text-luxury-gold transition-colors duration-200 flex items-center gap-1.5">
             {t.navHome}
           </a>
           <a href="#destinations" className="text-sm font-medium text-gray-300 hover:text-luxury-gold transition-colors duration-200 flex items-center gap-1.5">

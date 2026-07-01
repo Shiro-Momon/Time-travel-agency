@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, Compass } from 'lucide-react';
+import { Compass } from 'lucide-react';
 import { translations } from '../utils/translations';
 
 export default function Hero({ lang }) {
@@ -8,7 +8,7 @@ export default function Hero({ lang }) {
   return (
     <section id="home" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Background Video */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <video 
           autoPlay 
           loop 
@@ -29,7 +29,7 @@ export default function Hero({ lang }) {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-luxury-gold/30 bg-black/60 backdrop-blur-md mb-6 animate-pulse-slow">
           <span className="w-2 h-2 rounded-full bg-luxury-gold animate-ping" />
-          <span className="text-xs uppercase tracking-[0.2em] font-bold text-luxury-gold-light">
+          <span className="text-xs uppercase tracking-[0.25em] font-bold text-luxury-gold-light">
             Luxury Temporal Voyages
           </span>
         </div>
@@ -63,16 +63,6 @@ export default function Hero({ lang }) {
             <span>{t.heroQuiz}</span>
           </a>
         </div>
-      </div>
-
-      {/* Floating indicators / Scroll button */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce cursor-pointer">
-        <a href="#destinations" className="flex flex-col items-center">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-gray-400 font-semibold mb-1">
-            {t.heroScroll}
-          </span>
-          <ArrowDown className="w-5 h-5 text-luxury-gold" />
-        </a>
       </div>
     </section>
   );

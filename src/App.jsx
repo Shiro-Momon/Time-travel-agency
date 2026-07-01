@@ -28,7 +28,7 @@ export default function App() {
   const t = translations[lang];
 
   return (
-    <div className="min-h-screen bg-[#0B0B0C] text-[#F3F4F6] relative overflow-hidden">
+    <div className="min-h-screen bg-[#0B0B0C] text-[#F3F4F6] relative overflow-x-hidden">
       {/* Background Ambience Glows */}
       <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-luxury-gold/5 blur-[120px] pointer-events-none z-0" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-luxury-gold/5 blur-[120px] pointer-events-none z-0" />
