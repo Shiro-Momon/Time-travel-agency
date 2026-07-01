@@ -30,8 +30,8 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#0B0B0C] text-[#F3F4F6] relative overflow-x-hidden">
       {/* Background Ambience Glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-luxury-gold/5 blur-[120px] pointer-events-none z-0" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-luxury-gold/5 blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-0 left-0 w-[50vw] h-[50vw] rounded-full bg-luxury-gold/5 blur-[120px] pointer-events-none z-0 -translate-x-1/3 -translate-y-1/3" />
+      <div className="absolute bottom-0 right-0 w-[50vw] h-[50vw] rounded-full bg-luxury-gold/5 blur-[120px] pointer-events-none z-0 translate-x-1/3 translate-y-1/3" />
 
       {/* Navigation Header */}
       <Header onOpenChat={handleOpenChat} lang={lang} setLang={setLang} />
