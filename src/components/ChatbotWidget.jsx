@@ -163,7 +163,7 @@ export default function ChatbotWidget({ isOpen, onClose, onOpen, lang }) {
     setInput('');
     setIsLoading(true);
 
-    const activeKey = localStorage.getItem('mistral_api_key');
+    const activeKey = import.meta.env.VITE_MISTRAL_API_KEY || localStorage.getItem('mistral_api_key');
 
     if (activeKey) {
       // Direct API call to Mistral AI using mistral-small
@@ -300,9 +300,16 @@ export default function ChatbotWidget({ isOpen, onClose, onOpen, lang }) {
               <div className="flex flex-col justify-center items-center h-full p-4 text-center">
                 <AlertCircle className="w-12 h-12 text-luxury-gold mb-3 animate-pulse" />
                 <h5 className="font-display font-bold text-base text-white mb-2">{t.chatApiKeyTitle}</h5>
-                <p className="text-xs text-gray-400 max-w-[280px] mb-6 font-light">
-                  {t.chatApiKeyDesc}
-                </p>
+                {import.meta.env.VITE_MISTRAL_API_KEY ? (
+                  <div className="text-xs text-green-400 font-semibold mb-4 bg-green-500/10 border border-green-500/20 px-3 py-1.5 rounded-xl flex items-center gap-1.5 justify-center">
+                    <Sparkles className="w-3.5 h-3.5 text-green-400" />
+                    <span>.env API Key Active</span>
+                  </div>
+                ) : (
+                  <p className="text-xs text-gray-400 max-w-[280px] mb-6 font-light">
+                    {t.chatApiKeyDesc}
+                  </p>
+                )}
                 <form onSubmit={handleSaveKey} className="w-full flex flex-col gap-3">
                   <input
                     type="password"
